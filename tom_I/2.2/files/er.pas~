@@ -1,7 +1,0 @@
-var
-  I : Word;
-
-begin
- for I := 1 to ParamCount do
-   WriteLn(ParamStr(I));
-end.
