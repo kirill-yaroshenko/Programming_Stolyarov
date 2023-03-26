@@ -1,0 +1,7 @@
+program a2;
+var
+   c : char;
+begin
+   read(c);
+   writeln(c);
+end.

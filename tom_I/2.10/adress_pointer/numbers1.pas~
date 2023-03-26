@@ -1,0 +1,28 @@
+program Numbers1;           { numbers1.pas }
+type
+   itemptr = ^item;
+   item	   = record
+	  data : integer;
+	  next : itemptr;
+   end;
+var
+   first, tmp : itemptr;
+   n		 : integer;
+begin
+   first := nil;            { Ğ´ĞµĞ»Ğ°ĞµĞ¼ ÑĞ¿Ğ¸ÑĞ¾Ğº ĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ¾ Ğ¿ÑƒÑÑ‚Ñ‹Ğ¼! }
+   while not SeekEof do     { Ñ†Ğ¸ĞºĞ» Ñ‡Ñ‚ĞµĞ½Ğ¸Ñ Ñ‡Ğ¸ÑĞµĞ» }
+   begin
+      read(n);
+      new(tmp);             { ÑĞ¾Ğ·Ğ´Ğ°Ğ»Ğ¸ }
+      tmp^.data := n;       { Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½ÑĞµĞ¼ }
+      tmp^.next := first;
+      first := tmp;         { Ğ²ĞºĞ»ÑÑ‡Ğ°ĞµĞ¼ Ğ² ÑĞ¿Ğ¸ÑĞ¾Ğº }
+   end;
+   tmp := first;            { Ğ¿Ñ€Ğ¾Ñ…Ğ¾Ğ´Ğ¸Ğ¼ Ğ¿Ğ¾ ÑĞ¿Ğ¸ÑĞºÑƒ Ñ Ğ½Ğ°Ñ‡Ğ°Ğ»Ğ° }
+   while tmp <> nil do      { Ğ´Ğ¾ ĞºĞ¾Ğ½Ñ†Ğ° }
+   begin
+      writeln(tmp^.data);
+      tmp := tmp^.next      { Ğ¿ĞµÑ€ĞµÑ…Ğ¾Ğ´Ğ¸Ğ¼ Ğº ÑĞ»ĞµĞ´ÑƒÑÑ‰ĞµĞ¼Ñƒ ÑĞ»-Ñ‚Ñƒ }
+   end
+end.
+€kda€kl€kr€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr€kr:w€kbq1:q!:q

@@ -1,0 +1,7 @@
+program hello;
+var
+   i : integer;
+begin
+   for i := 1 do 20 to
+      writeln('Hello, world!')
+end.

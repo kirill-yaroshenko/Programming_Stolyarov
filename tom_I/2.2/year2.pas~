@@ -1,0 +1,9 @@
+program year;
+var
+   year	: integer;
+begin
+   write('Please type in your birth year: ');
+   repeat
+      readln(year)
+   until (year >= 1900) and (year <= 2020)
+end.

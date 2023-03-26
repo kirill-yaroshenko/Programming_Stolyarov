@@ -1,0 +1,45 @@
+program numbers1;
+
+type
+   itemptr = ^item;
+   item	   = record
+	  data : integer;
+	  next : itemptr;
+  end;		     
+var
+   first, tmp : itemptr;
+   num	      : integer;
+begin                                          
+   first := nil;                              { делаем список корректно пустым! }
+   while not SeekEof do                       { цикл чтения чисел }
+   begin
+      read(num);
+      if first = nil then
+      begin
+	 new(first);                          { создём первый эл-т списка }
+	 tmp := first                         { объявляем его последним }
+      end
+      else
+      begin
+	 new(tmp^.next);                      { включаем в список }
+	 tmp := tmp^.next                       
+      end;
+      tmp^.data := num;                       { прохлдим по списку с начала }
+      tmp^.next := nil;
+   end;
+   while first <> nil do                      { до конца }   
+   begin
+       writeln(first^.data);
+      tmp := first;                           { запоминаем адрес первого }
+      first := first^.next;                   { исключаем его из списка }
+      dispose(tmp);                           { удаляем его из памяти}
+   end;
+   { or }
+   while first <> nil do
+   begin
+      writeln(first^.data);
+      tmp := first^.next;                     { запоминаем адрес следующего } 
+      dispose(first);                         { уничтожаем первый эл-т }    
+      first := tmp                            { список теперь начинается со следующего }
+   end
+end.

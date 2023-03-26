@@ -1,0 +1,31 @@
+program poin2;
+
+type
+   itemptr = ^item;
+   item	   =  record
+          data : integer;
+	  next : itemptr;
+	  mid : integer;
+   end;		     
+var
+   first   : itemptr;
+   a, b, i : integer;
+begin
+   while not SeekEof do
+   begin
+      read(a);
+      new(first);
+      first^.data := a;
+      first^.mid := first^.data;
+      new(first^.next);
+      first^.next^.data := a;
+      first^.next^.next := nil;
+      writeln(a);
+   end;
+   for i := a downto 1 do
+   begin
+      writeln(a);
+//	 a := a - 1;
+   end;
+//end;
+end.

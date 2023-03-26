@@ -1,0 +1,6 @@
+program a2;
+begin
+   c := f char;
+   read(c);
+   writeln(c);
+end.

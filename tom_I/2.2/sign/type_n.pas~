@@ -1,0 +1,13 @@
+program Type_N;          { type_n.pas }
+var
+   i, j	: integer;
+   r	: real;
+ //  c	: char;
+begin
+  // c := 'B';
+   r := 15.75;
+   i := trunc(r);
+   j := round(r);
+   //byte(c) := 65;
+   writeln(i, ' ', j)//, ' ', c, ' ', byte(c));
+end.

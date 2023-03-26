@@ -1,0 +1,37 @@
+program OlympCounter;
+const
+   MaxSchool = 67;
+   MaxGroup  = 100;
+type
+   CounterArray	= array[1..MaxSchool] of integer;
+var
+   Counters : CounterArray;
+   a, b, c  : integer;
+begin
+   for a := 1 to MaxSchool do
+      Counters[a] := 0;
+   {$I-}
+   while not eof do
+   begin
+      readln(b);
+      if IOResult <> 0 then
+      begin
+	 writeln('Incorrect data!');
+	 halt(1);
+      end;
+      c := b div MaxGroup;
+      if (c < 1) or (c > MaxSchool) then
+      begin
+	 writeln('Illegal school ID: ', c, ' [', b, ']');
+	 halt(1);
+      end;
+      Counters[c] := Counters[c] + 1
+   end;
+   c := 1;
+   for a := 2 to MaxSchool do
+      if Counters[a] > Counters[c] then
+	 c := a;
+   for a := 1 to MaxSchool do
+      if Counters[a] = Counters[c] then
+	 writeln(a)
+end.

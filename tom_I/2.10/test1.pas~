@@ -1,0 +1,28 @@
+program numbers1;
+
+type
+   itemptr = ^item;
+   item	   = record
+	  data : integer;
+	  next : itemptr;
+   end;		     
+var
+   first, tmp : itemptr;
+   num	 : integer;
+begin                                          { делакм список корректно пустым ! }
+   first := nil;
+   while not SeekEof do                        { цикл чтения чисел }
+   begin
+      read(num);
+      new(tmp);                                { создали }
+      tmp^.data := num;                        { заполняем }
+      tmp^.next := first;                      { включаем в список }
+      first := tmp                       
+   end;
+   tmp := first;                               { прохлдим по списку с начала }
+   while tmp <> nil do                         { до конца }   
+   begin
+      writeln(tmp^.data);
+      next := tmp^.next                         { переход к следующему эл-ту }
+   end
+end.

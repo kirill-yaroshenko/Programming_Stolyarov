@@ -1,0 +1,10 @@
+program Diamond;    { diamond_proc.pas }
+
+procedure PrintSpaces(count: integer);
+var
+   i : integer;
+begin
+   for i := 1 to count do
+      write(' ')
+end;
+      

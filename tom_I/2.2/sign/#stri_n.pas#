@@ -1,0 +1,10 @@
+program Stri;
+var
+   s1 : string[15];
+   s2 : string;
+begin
+   s1 := 'abrakadabra';
+   s2 := s1;
+   writeln(s1[1], ' ', s2[1]);
+   writeln('abra'#10'kadabra');
+end.

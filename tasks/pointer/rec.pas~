@@ -1,0 +1,35 @@
+program N1;
+
+type
+    ItemPtr = ^Item;
+    Item = record
+        data: longint;
+	next: ItemPtr;
+    end;
+
+var
+    first, tmp: ItemPtr; 
+    a: longint;
+begin
+    first := nil;
+    while not SeekEof do
+    begin
+        new(tmp);
+	readln(a);
+	tmp^.data := a;
+	tmp^.next := first;
+	first := tmp;
+    end;
+    while first <> nil do
+    begin
+	writeln(first^.data);
+	tmp := tmp^.next;         { запоминаем адрес следующего }
+	dispose(first);           { уничтожается первый э-т }
+	first := tmp;             { список начинается со следующего }  
+	
+        {//tmp := first;             { запоминается адрес первого }
+	//first := first^.next;     { исключается из списка } 
+	//dispose(tmp);}             { удаляется из списка }
+	
+    end;
+end.

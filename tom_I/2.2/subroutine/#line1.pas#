@@ -1,0 +1,12 @@
+program Line;
+var
+   a, b : integer;
+
+begin
+   for a := 7 downto 1 do
+//      begin
+//	 for b := 1 to a - 1 do
+//	    write(' ');
+      writeln('*')
+//      end
+end.
